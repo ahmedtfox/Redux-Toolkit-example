@@ -4,11 +4,11 @@ import {getAllPosts} from "./API";
 import { Card, Alert } from "react-bootstrap";
 function Post() {
   const dispatch = useDispatch();
-
+  const url = "https://jsonplaceholder.typicode.com/posts";
   // Fetch posts when the component mounts
   useEffect(() => {
-    dispatch(getAllPosts());
-  }, []);
+    dispatch(getAllPosts(url));
+  }, [dispatch]);
 
   // Get the posts from the Redux store
   const posts = useSelector((state) => state.postsData.posts) || [];
